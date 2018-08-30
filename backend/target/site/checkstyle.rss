@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2018</copyright>
     <item>
-      <title>File: 2,
-             Errors: 8,
+      <title>File: 7,
+             Errors: 67,
              Warnings: 0,
              Infos: 0
       </title>
@@ -60,6 +60,48 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/demo/demo-backend/checkstyle.html#com.couture.camunda.devicecare.demo.service.UserService.java">com/couture/camunda/devicecare/demo/service/UserService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/demo/demo-backend/checkstyle.html#com.couture.camunda.devicecare.demo.model.User.java">com/couture/camunda/devicecare/demo/model/User.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  30
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/demo/demo-backend/checkstyle.html#com.couture.camunda.devicecare.demo.rest.UserController.java">com/couture/camunda/devicecare/demo/rest/UserController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/demo/demo-backend/checkstyle.html#com.couture.camunda.devicecare.demo.DemoApplication.java">com/couture/camunda/devicecare/demo/DemoApplication.java</a>
                 </td>
                 <td>
@@ -69,7 +111,35 @@ under the License.
                   0
                 </td>
                 <td>
-                  7
+                  26
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/demo/demo-backend/checkstyle.html#com.couture.camunda.devicecare.demo.repo.UserRepository.java">com/couture/camunda/devicecare/demo/repo/UserRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://projects.spring.io/spring-boot/#/spring-boot-starter-parent/demo/demo-backend/checkstyle.html#com.couture.camunda.devicecare.demo.service.UserServiceImpl.java">com/couture/camunda/devicecare/demo/service/UserServiceImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
               </tr>
                       </tbody>

@@ -1,0 +1,9 @@
+  <div class="claimSelectWrapper">
+  <mat-form-field>
+    <mat-select placeholder="Select claim" panelClass="claim-select">
+		<mat-option *ngFor="let claim of claims" [value]="claim.value">
+			{{ claim.viewValue }}
+		</mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
