@@ -1,0 +1,22 @@
+.example-container {
+	z-index: 0;
+}
+
+.example-sidenav {
+  display: flex;
+  width: 300px;
+  background: #e3e9ee;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.example-sidenav-content {
+  padding: 50px;
+}
+
+.searchClaim-card.mat-card {
+  width: 245px;
+}

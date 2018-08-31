@@ -15,17 +15,20 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private Long id;
+	
 	@Column(name="firstName")
 	private String firstName;
+
 	@Column(name="lastName")
 	private String lastName;
+
 	@Column(name="email")
 	private String email;
 
 	protected User() {}
 	
     public User(String firstName, String lastName, String email) {
-        this.firstName = firstName;
+    	this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
@@ -36,4 +39,20 @@ public class User {
                 "Customer[id=%d, firstName='%s', lastName='%s', lastName='%s']",
                 id, firstName, lastName, email);
     }
+    
+	public Long getId() {
+		return id;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
 }

@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { MatToolbarModule, MatSidenavModule, MatCheckboxModule, MatFormFieldModule , MatDividerModule,
          MatListModule, MatCardModule, MatAutocompleteModule, MatInputModule, MatSelectModule,
-         MatButtonModule, MatIconModule, MatGridListModule, MatStepperModule} from '@angular/material';
+         MatButtonModule, MatIconModule, MatGridListModule, MatStepperModule, MatTableModule} from '@angular/material';
 import { MglTimelineModule } from 'angular-mgl-timeline';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './sidenav/sidenav.component';
@@ -15,9 +16,9 @@ import { ContentgridComponent } from './contentgrid/contentgrid.component';
 import { ClaimdetailComponent } from './claimdetail/claimdetail.component';
 import { StepperComponent } from './stepper/stepper.component';
 import { UseradminComponent } from './useradmin/useradmin.component';
-import { AppRoutingModule } from './app.routing.module';
-import { UserService } from './useradmin/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app.routing.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContentgridComponent,
     ClaimdetailComponent,
     StepperComponent,
-    UseradminComponent
+    UseradminComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,11 +42,13 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatToolbarModule, MatSidenavModule, MatCheckboxModule, MatFormFieldModule, MatDividerModule,
     MatListModule, MatCardModule, MatAutocompleteModule, MatInputModule, MatSelectModule, MatButtonModule,
-    MatGridListModule, MatStepperModule,
+    MatGridListModule, MatStepperModule, MatTableModule,
     MatIconModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [
+    {provide: APP_BASE_HREF, useValue: '/' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,5 @@
 com\couture\camunda\devicecare\demo\DemoApplication.class
 com\couture\camunda\devicecare\demo\model\User.class
 com\couture\camunda\devicecare\demo\repo\UserRepository.class
+com\couture\camunda\devicecare\demo\service\UserService.class
+com\couture\camunda\devicecare\demo\rest\UserController.class
