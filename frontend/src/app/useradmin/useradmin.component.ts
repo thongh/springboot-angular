@@ -23,18 +23,29 @@ import { User } from './user.model';
   providers: [UserService]
 })
 export class UseradminComponent implements OnInit {
+  mockusers: User[];
   users: User[];
   displayedColumns = ['id', 'firstName', 'lastName', 'email'];
-
+  dataSource;
   constructor(private userService: UserService) {}
 
   ngOnInit() {
+    this.getMockUsers();
     this.getUsers();
-    this.dataSource = new MatTableDataSource(this.users);
+  }
+
+  getMockUsers(): void {
+    this.mockusers = this.userService.getMockUsers();
   }
 
   getUsers(): void {
-    this.users = this.userService.getUsers();
+    this.userService.getUsers().subscribe({
+      next: x => this.users = x,
+      error(msg) { console.log('Error Getting users: ', msg); },
+      complete: () => {
+        this.dataSource = new MatTableDataSource(this.users);    
+      }
+    });
   }
 }
 

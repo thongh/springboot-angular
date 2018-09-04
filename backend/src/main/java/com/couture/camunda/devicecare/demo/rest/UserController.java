@@ -11,7 +11,7 @@ import com.couture.camunda.devicecare.demo.repo.UserRepository;
 
 import java.util.List;
 
-//@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 public class UserController {
 	
@@ -26,5 +26,11 @@ public class UserController {
     	User user = users.get(0);
     	log.info("User found: " + user.toString());
     	return user;
+    }
+    
+    @RequestMapping("/allusers")
+    public Iterable<User> allUsers() { 	
+    	Iterable<User> users = userRepository.findAll();
+    	return users;
     }
 }
