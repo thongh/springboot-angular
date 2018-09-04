@@ -43,7 +43,7 @@ export class UseradminComponent implements OnInit {
       next: x => this.users = x,
       error(msg) { console.log('Error Getting users: ', msg); },
       complete: () => {
-        this.dataSource = new MatTableDataSource(this.users);    
+        this.dataSource = new MatTableDataSource(this.users);
       }
     });
   }
