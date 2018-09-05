@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ViewController {
-    @RequestMapping({ "/user-admin" })
+    @RequestMapping({ "/user-admin", "/login" })
 	public String index() {
         return "forward:/index.html";
     }

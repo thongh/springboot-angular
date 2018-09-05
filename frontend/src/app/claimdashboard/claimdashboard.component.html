@@ -12,12 +12,17 @@
     </mat-expansion-panel-header>
 
     <mat-form-field>
-      <input matInput placeholder="First name">
+      <input matInput placeholder="First name" [disabled]="true">{{user?.firstName}}
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Age">
+      <input matInput placeholder="Last name" [disabled]="true">{{user?.lastName}}
     </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Email" [disabled]="true">{{user?.email}}
+    </mat-form-field>
+    
   </mat-expansion-panel>
   <mat-expansion-panel (opened)="true" [disabled]="false">
     <mat-expansion-panel-header>

@@ -1,5 +1,6 @@
 package com.couture.camunda.devicecare.demo.rest;
 import org.slf4j.Logger;
+
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,8 +22,8 @@ public class UserController {
     private UserRepository userRepository;
     
     @RequestMapping("/user")
-    public User user(@RequestParam(value="lastName", defaultValue="Bauer") String lastName) { 	
-    	List<User> users = userRepository.findByLastName(lastName);
+    public User user(@RequestParam(value="username", defaultValue="jack@email.com") String username) { 	
+    	List<User> users = userRepository.findByUsername(username);
     	User user = users.get(0);
     	log.info("User found: " + user.toString());
     	return user;

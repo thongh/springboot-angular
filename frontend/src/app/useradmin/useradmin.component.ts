@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { UserService } from './user.service';
-import { User } from './user.model';
+import { User } from '../models/user.model';
 
 // const ELEMENT_DATA: Element[] = [
 //  {position: 1, firstName: 'John', lastName: 'Doe', email: 'john@gmail.com'},

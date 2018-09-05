@@ -1,4 +1,5 @@
  import { Component } from '@angular/core';
+ import { User } from './models/user.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@
 })
 export class AppComponent {
   title = 'app';
+  loggedInUser: User;
+    
+  receiveMessage($event) {
+    this.loggedInUser = $event
+  }
 }

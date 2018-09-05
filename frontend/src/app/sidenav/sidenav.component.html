@@ -8,7 +8,7 @@
 		<mat-card class="searchClaim-card">
 		  <mat-card-header class="mat-card-header">
 			<div mat-card-avatar class="example-header-image"></div>
-			<mat-card-title>Shiba Inu</mat-card-title>
+			<mat-card-title>{{user?.firstName + " " + user?.lastName}}</mat-card-title>
 			<mat-card-subtitle>Logout</mat-card-subtitle>
 		  </mat-card-header>
 		  <mat-card-content>
@@ -29,8 +29,8 @@
 
 	<mat-sidenav-content [formGroup]="options" class="example-sidenav-content">
 	  <!--<p><mat-checkbox formControlName="fixed">Fixed</mat-checkbox></p>
-      <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>-->	  
-	  <router-outlet></router-outlet>
+      <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>-->
+      <app-claimdashboard></app-claimdashboard>	  
 
 	</mat-sidenav-content>
 	

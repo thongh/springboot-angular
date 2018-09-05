@@ -26,4 +26,12 @@ public class UserService {
 		return user;
 	}
 	
+	public User findUserByUsername(String username) {
+		User user = null;
+		List<User> users = userRepository.findByUsername(username);
+		user = users.get(0);
+		logger.info("User found: " + user);
+		return user;
+	}
+	
 }
