@@ -9,8 +9,8 @@
 export class AppComponent {
   title = 'app';
   loggedInUser: User;
-    
+
   receiveMessage($event) {
-    this.loggedInUser = $event
+    this.loggedInUser = $event;
   }
 }

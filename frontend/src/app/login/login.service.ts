@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -12,7 +12,7 @@ export class LoginService {
 
   private userSource = new BehaviorSubject<User>(new User());
   currentUser = this.userSource.asObservable();
-    
+
   constructor(
     private http: HttpClient) { }
 
@@ -35,7 +35,7 @@ export class LoginService {
   getUser(username): Observable<User> {
     return this.http.get<User>('http://localhost:8090/user?username=' + username);
   }
-  
+
   setCurrentUser(user: User) {
     this.userSource.next(user);
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from '../models/user.model';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
@@ -15,10 +15,10 @@ export class SidenavComponent implements OnInit {
   options: FormGroup;
   user: User;
   username: string;
-    
+
   constructor(
     fb: FormBuilder,
-    private dataService: DataService
+    private dataService: DataService,
     private route: ActivatedRoute) {
       this.options = fb.group({
         bottom: 0,
@@ -26,7 +26,7 @@ export class SidenavComponent implements OnInit {
         top: 0
       });
     }
-  
+
   ngOnInit() {
     this.username = this.route.snapshot.params.username;
     this.dataService.getUser(this.username).subscribe({

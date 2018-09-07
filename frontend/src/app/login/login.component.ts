@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
           && this.credentials.password === this.user.password) {
             this.messageEvent.emit(this.user);
             this.loginService.setCurrentUser(this.user);
-            this.dataService.changeMessage("Test");
+            this.dataService.changeMessage('Test');
             this.router.navigate(['/home', this.user.username]);
         } else {
           alert('wrong pass!');

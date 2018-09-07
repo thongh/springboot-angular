@@ -1,6 +1,6 @@
 <p>
+  <mat-accordion multi="true"> 
   <!-- Personal details -->
-  <mat-accordion multi="true">
   <mat-expansion-panel (opened)="false" [disabled]="false">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -10,20 +10,55 @@
         Check your current person details here
       </mat-panel-description>
     </mat-expansion-panel-header>
-
     <mat-form-field>
       <input matInput placeholder="First name" [disabled]="true">{{user?.firstName}}
     </mat-form-field>
-
     <mat-form-field>
       <input matInput placeholder="Last name" [disabled]="true">{{user?.lastName}}
-    </mat-form-field>
-    
+    </mat-form-field> 
     <mat-form-field>
       <input matInput placeholder="Email" [disabled]="true">{{user?.email}}
-    </mat-form-field>
+    </mat-form-field>  
+  </mat-expansion-panel>
+  <!-- Policies -->
+  <mat-expansion-panel (opened)="true" [disabled]="false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Policies
+      </mat-panel-title>
+      <mat-panel-description>
+        Your current policies
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    
+    <mat-table #table [dataSource]="policiesDataSource">
+
+	    <ng-container matColumnDef="policyId">
+	      <mat-header-cell *matHeaderCellDef> Policy ID </mat-header-cell>
+	      <mat-cell *matCellDef="let policy">{{policy.policyId}}</mat-cell>
+	    </ng-container>
+
+	    <ng-container matColumnDef="fundValue">
+	      <mat-header-cell *matHeaderCellDef> Fund Value </mat-header-cell>
+	      <mat-cell *matCellDef="let policy">{{policy.fundValue}}</mat-cell>
+	    </ng-container>
+
+	    <ng-container matColumnDef="policyTerm">
+	      <mat-header-cell *matHeaderCellDef> Policy Term </mat-header-cell>
+	      <mat-cell *matCellDef="let policy">{{policy.policyTerm}}</mat-cell>
+	    </ng-container>
+
+	    <ng-container matColumnDef="assetId">
+	      <mat-header-cell *matHeaderCellDef> Asset ID </mat-header-cell>
+	      <mat-cell *matCellDef="let policy">{{policy.assetId}}</mat-cell>
+	    </ng-container>
+
+	    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+	    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+	</mat-table>
     
   </mat-expansion-panel>
+  <!-- Claims -->
   <mat-expansion-panel (opened)="true" [disabled]="false">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -33,8 +68,8 @@
         Currently you have {{haveActiveClaim ? '' : 'no'}} active claim.
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
+    <p>Currently you have {{haveActiveClaim ? '' : 'no'}} active claim.</p>
+    <button mat-button color="primary" (click)="openDialog(policies)"><mat-icon>add</mat-icon>New Claim</button>
   </mat-expansion-panel>
 </mat-accordion>
-
 </p>

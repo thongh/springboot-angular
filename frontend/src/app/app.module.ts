@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { MatToolbarModule, MatSidenavModule, MatCheckboxModule, MatFormFieldModule , MatDividerModule,
          MatListModule, MatCardModule, MatAutocompleteModule, MatInputModule, MatSelectModule,
          MatButtonModule, MatIconModule, MatGridListModule, MatStepperModule, MatTableModule,
-         MatExpansionModule} from '@angular/material';
+         MatExpansionModule, MatDialogModule} from '@angular/material';
 import { MglTimelineModule } from 'angular-mgl-timeline';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './sidenav/sidenav.component';
@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app.routing.module';
 import { LoginComponent } from './login/login.component';
 import { ClaimdashboardComponent } from './claimdashboard/claimdashboard.component';
+import { NewclaimmodalComponent } from './newclaimmodal/newclaimmodal.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,10 @@ import { ClaimdashboardComponent } from './claimdashboard/claimdashboard.compone
     StepperComponent,
     UseradminComponent,
     LoginComponent,
-    ClaimdashboardComponent
+    ClaimdashboardComponent,
+    NewclaimmodalComponent
   ],
+  entryComponents: [NewclaimmodalComponent],
   imports: [
     BrowserModule,
     RouterModule,
@@ -45,7 +48,7 @@ import { ClaimdashboardComponent } from './claimdashboard/claimdashboard.compone
     ReactiveFormsModule,
     MatToolbarModule, MatSidenavModule, MatCheckboxModule, MatFormFieldModule, MatDividerModule,
     MatListModule, MatCardModule, MatAutocompleteModule, MatInputModule, MatSelectModule, MatButtonModule,
-    MatGridListModule, MatStepperModule, MatTableModule, MatExpansionModule, MatIconModule,
+    MatGridListModule, MatStepperModule, MatTableModule, MatExpansionModule, MatIconModule, MatDialogModule,
     HttpClientModule
   ],
   providers: [
