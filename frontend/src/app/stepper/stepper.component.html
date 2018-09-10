@@ -1,41 +1,39 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
+  <mat-step [stepControl]="firstFormGroup" [completed]="true">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Claim Notification</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field>
+      <p> This is done! </p>
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
+  <mat-step [stepControl]="secondFormGroup" [completed]="true">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Claim Assessment</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-      </mat-form-field>
+      <p> This is done! </p>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step>
+  <mat-step [completed]="true">
     <ng-template matStepLabel>Claim Fulfillment</ng-template>
-    You are now done.
+    <ng-template matStepperIcon="done">
+    	<mat-icon>done_all</mat-icon>
+  	</ng-template>
+    <p> This is done! </p>
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="stepper.reset()">Next</button>
     </div>
   </mat-step>
-  <mat-step>
+  <mat-step [completed]="true">
     <ng-template matStepLabel>Claim Closure</ng-template>
-    You are now done.
+    <p> This is done! </p>
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

@@ -5,7 +5,14 @@ import { of } from 'rxjs/observable/of';
 import { User } from '../models/user.model';
 import { Policy } from '../models/policy.model';
 import { Customer } from '../models/customer.model';
+import { Asset } from '../models/asset.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+interface CheckClaimResponse {
+  id: string;
+  definitionId: string;
+  businessKey: string;
+}
 
 @Injectable()
 export class DataService {
@@ -37,6 +44,26 @@ export class DataService {
 
   setCurrentCustomerPolicy(policies: Policy[]) {
     this.customerPolicySource.next(policies);
+  }
+
+  getAsset(assetId): Observable<Asset> {
+    return this.http.get<Asset>('http://localhost:8090/asset?id=' + assetId);
+  }
+
+  submitClaim(claimData) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    const startClaimUrl = 'http://localhost:8070/engine-rest/process-definition/key/FirstDemo/start';
+    return this.http
+      .post(startClaimUrl, claimData, httpOptions);
+  }
+
+  checkClaim(input): Observable<CheckClaimResponse> {
+    const getClaimInstanceUrl = 'http://localhost:8070/engine-rest/process-instance';
+    return this.http.get<CheckClaimResponse>(getClaimInstanceUrl);
   }
 
 }

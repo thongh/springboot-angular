@@ -22,6 +22,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { LoginComponent } from './login/login.component';
 import { ClaimdashboardComponent } from './claimdashboard/claimdashboard.component';
 import { NewclaimmodalComponent } from './newclaimmodal/newclaimmodal.component';
+import { ViewclaimmodalComponent } from './viewclaimmodal/viewclaimmodal.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +36,10 @@ import { NewclaimmodalComponent } from './newclaimmodal/newclaimmodal.component'
     UseradminComponent,
     LoginComponent,
     ClaimdashboardComponent,
-    NewclaimmodalComponent
+    NewclaimmodalComponent,
+    ViewclaimmodalComponent
   ],
-  entryComponents: [NewclaimmodalComponent],
+  entryComponents: [NewclaimmodalComponent, ViewclaimmodalComponent],
   imports: [
     BrowserModule,
     RouterModule,

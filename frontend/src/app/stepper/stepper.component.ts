@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-stepper',
@@ -8,7 +8,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class StepperComponent implements OnInit {
 
-  isLinear = false;
+  isLinear = true;
+  isEditable = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 

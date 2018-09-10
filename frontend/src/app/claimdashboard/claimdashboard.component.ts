@@ -8,6 +8,19 @@ import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { NewclaimmodalComponent } from '../newclaimmodal/newclaimmodal.component';
+import { SelectionModel } from '@angular/cdk/collections';
+import { ViewclaimmodalComponent } from '../viewclaimmodal/viewclaimmodal.component';
+
+interface CheckClaimResponse {
+  id: string;
+  definitionId: string;
+  businessKey: string;
+}
+
+interface SelectedClaim {
+  id: string;
+  definitionId: string;
+}
 
 @Component({
   selector: 'app-claimdashboard',
@@ -27,6 +40,11 @@ export class ClaimdashboardComponent implements OnInit {
   displayedColumns = ['policyId', 'fundValue', 'policyTerm', 'assetId'];
   animal: string;
   name: string;
+  userInstances: CheckClaimResponse[];
+  userInstanceDisplayCols = ['id', 'definitionId', 'select'];
+  userClaimsDataSource;
+  selectedUserClaim;
+  allowMultiSelect = false;
 
   constructor(
     private loginService: LoginService,
@@ -35,6 +53,8 @@ export class ClaimdashboardComponent implements OnInit {
     public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.selectedUserClaim = new SelectionModel<SelectedClaim>(this.allowMultiSelect, []);
+    this.userInstances = new Array<CheckClaimResponse>();
     // Get user name from URL
     this.username = this.route.snapshot.params.username;
     // Get logged in user details
@@ -60,17 +80,62 @@ export class ClaimdashboardComponent implements OnInit {
         });
       }
     });
+    // Get claims of logged in user
+    this.dataService.checkClaim<CheckClaimResponse>().subscribe(
+      instances => {
+        console.log('all claims');
+        console.log(instances);
+        for (const instance of instances) {
+          if (instance.definitionId.indexOf('FirstDemo:2') >= 0) {
+            this.userInstances.push(instance);
+          }
+        }
+        console.log('logged in user claims');
+        console.log(this.userInstances);
+        if (this.userInstances.length > 0) {
+          this.haveActiveClaim = true;
+        }
+        this.userClaimsDataSource = new MatTableDataSource(this.userInstances);
+    });
   }
 
   openDialog(policies): void {
     const dialogRef = this.dialog.open(NewclaimmodalComponent, {
-      width: '60%',
+      width: '80%',
       data: {policies: policies}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.animal = result;
+
+      this.dataService.checkClaim<CheckClaimResponse>().subscribe(
+        instances => {
+            console.log('all claims');
+            console.log(instances);
+            this.userInstances = new Array();
+            for (const instance of instances) {
+                if ( instance.definitionId.indexOf('FirstDemo:2') >= 0) {
+                    this.userInstances.push(instance);
+                }
+            }
+            console.log('logged in user claims');
+            console.log(this.userInstances);
+            if (this.userInstances.length > 0) {
+                this.haveActiveClaim = true;
+            }
+            this.userClaimsDataSource = new MatTableDataSource(this.userInstances);
+        });
+    });
+  }
+
+  openViewClaimDialog(accidentalClaim): void {
+    const dialogRef = this.dialog.open(ViewclaimmodalComponent, {
+      width: '80%',
+      data: {claim: accidentalClaim}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The view claim dialog was closed');
     });
   }
 
