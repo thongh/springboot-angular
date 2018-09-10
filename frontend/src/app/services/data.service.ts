@@ -7,12 +7,7 @@ import { Policy } from '../models/policy.model';
 import { Customer } from '../models/customer.model';
 import { Asset } from '../models/asset.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-interface CheckClaimResponse {
-  id: string;
-  definitionId: string;
-  businessKey: string;
-}
+import { CamInstanceResponse } from '../models/caminstanceres.model';
 
 @Injectable()
 export class DataService {
@@ -61,9 +56,9 @@ export class DataService {
       .post(startClaimUrl, claimData, httpOptions);
   }
 
-  checkClaim(input): Observable<CheckClaimResponse> {
+  checkClaim(): Observable<CamInstanceResponse[]> {
     const getClaimInstanceUrl = 'http://localhost:8070/engine-rest/process-instance';
-    return this.http.get<CheckClaimResponse>(getClaimInstanceUrl);
+    return this.http.get<CamInstanceResponse[]>(getClaimInstanceUrl);
   }
 
 }

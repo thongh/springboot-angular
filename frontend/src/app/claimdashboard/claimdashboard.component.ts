@@ -10,6 +10,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { NewclaimmodalComponent } from '../newclaimmodal/newclaimmodal.component';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ViewclaimmodalComponent } from '../viewclaimmodal/viewclaimmodal.component';
+import { CamInstanceResponse } from '../models/caminstanceres.model';
 
 interface CheckClaimResponse {
   id: string;
@@ -81,7 +82,7 @@ export class ClaimdashboardComponent implements OnInit {
       }
     });
     // Get claims of logged in user
-    this.dataService.checkClaim<CheckClaimResponse>().subscribe(
+    this.dataService.checkClaim().subscribe(
       instances => {
         console.log('all claims');
         console.log(instances);
@@ -108,7 +109,7 @@ export class ClaimdashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
-      this.dataService.checkClaim<CheckClaimResponse>().subscribe(
+      this.dataService.checkClaim().subscribe(
         instances => {
             console.log('all claims');
             console.log(instances);
