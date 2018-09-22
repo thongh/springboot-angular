@@ -35,26 +35,31 @@
 
 	    <ng-container matColumnDef="policyId">
 	      <mat-header-cell *matHeaderCellDef> Policy ID </mat-header-cell>
-	      <mat-cell *matCellDef="let policy">{{policy.policyId}}</mat-cell>
+	      <mat-cell *matCellDef="let element">{{element.policyId}}</mat-cell>
 	    </ng-container>
 
 	    <ng-container matColumnDef="fundValue">
 	      <mat-header-cell *matHeaderCellDef> Fund Value </mat-header-cell>
-	      <mat-cell *matCellDef="let policy">{{policy.fundValue}}</mat-cell>
+	      <mat-cell *matCellDef="let element">{{element.fundValue}}</mat-cell>
 	    </ng-container>
 
 	    <ng-container matColumnDef="policyTerm">
 	      <mat-header-cell *matHeaderCellDef> Policy Term </mat-header-cell>
-	      <mat-cell *matCellDef="let policy">{{policy.policyTerm}}</mat-cell>
+	      <mat-cell *matCellDef="let element">{{element.policyTerm}}</mat-cell>
 	    </ng-container>
 
 	    <ng-container matColumnDef="assetId">
 	      <mat-header-cell *matHeaderCellDef> Asset ID </mat-header-cell>
-	      <mat-cell *matCellDef="let policy">{{policy.assetId}}</mat-cell>
+	      <mat-cell *matCellDef="let element">{{element.assetId}}</mat-cell>
+	    </ng-container>
+	    
+	    <ng-container matColumnDef="assetName">
+	      <mat-header-cell *matHeaderCellDef> Asset Name </mat-header-cell>
+	      <mat-cell *matCellDef="let element">{{element.assetName}}</mat-cell>
 	    </ng-container>
 
-	    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-	    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+	    <mat-header-row *matHeaderRowDef="polAssetDisplayedColumns"></mat-header-row>
+	    <mat-row *matRowDef="let row; columns: polAssetDisplayedColumns"></mat-row>
 	</mat-table>
     
   </mat-expansion-panel>
@@ -62,10 +67,10 @@
   <mat-expansion-panel (opened)="true" [disabled]="false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Claims
+        Your Claims   
       </mat-panel-title>
       <mat-panel-description>
-        <p>Currently you have {{haveActiveClaim ? '' : 'no'}} active claim.</p>
+        Currently you have {{haveActiveClaim ? '' : 'no'}} active claim.
       </mat-panel-description>
     </mat-expansion-panel-header>
     <!-- If there are claims -->
@@ -75,15 +80,13 @@
 	      <mat-header-cell *matHeaderCellDef> Claim ID </mat-header-cell>
 	      <mat-cell *matCellDef="let instance">{{instance.id}}</mat-cell>
 	    </ng-container>
-
-	    <ng-container matColumnDef="definitionId">
-	      <mat-header-cell *matHeaderCellDef> Claim Type </mat-header-cell>
-	      <mat-cell *matCellDef="let instance">{{instance.definitionId}}</mat-cell>
-	    </ng-container>
 	    
 	    <ng-container matColumnDef="select">
 	      <mat-header-cell *matHeaderCellDef> Select </mat-header-cell>
-	      <mat-cell *matCellDef="let instance"><button mat-button color="primary" (click)="openViewClaimDialog(instance)"><mat-icon>view</mat-icon>View Claim</button></mat-cell>
+	      <mat-cell *matCellDef="let instance"><button mat-button color="primary" 
+	      	(click)="openViewClaimDialog(instance)" 
+	      	style="padding-left:0">View Claim</button>
+	      </mat-cell>
 	    </ng-container>
 
 	    <mat-header-row *matHeaderRowDef="userInstanceDisplayCols"></mat-header-row>
